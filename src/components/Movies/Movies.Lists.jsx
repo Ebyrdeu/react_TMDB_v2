@@ -3,6 +3,7 @@ import {useContext, useState} from "react";
 import {TogglerContext} from "../../context/Toggler.context.jsx";
 import {TypeOne} from "./Movies.List.TypeOne.jsx";
 import {TypeThree} from "./Movies.List.TypeThree.jsx";
+import {TypeTwo} from "./Movies.List.TypeTwo";
 
 
 export const MoviesLists = () => {
@@ -15,7 +16,7 @@ export const MoviesLists = () => {
 		<div>
 			<div style={{marginBottom: 120}}>
 				{showListType === 1 ? <TypeOne data={data}/>: null}
-				{showListType === 2 ? <TypeOne data={data}/>: null}
+				{showListType === 2 ? <TypeTwo data={data}/>: null}
 				{showListType === 3 ? <TypeThree data={data}/>: null}
 			</div>
 			<button onClick={fetchNextPage}>Fetch </button>
