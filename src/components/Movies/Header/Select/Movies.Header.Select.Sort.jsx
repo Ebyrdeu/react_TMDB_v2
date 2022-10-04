@@ -4,7 +4,7 @@ import {NativeSelect} from "@mantine/core";
 
 export const Sort = () => {
 	const [genreData, setGenreData] = useState([
-		{value: "none", label: "None"},
+		{value: 'none', label: "None"},
 		{value: "popularity.asc", label: "Popularity Asc"},
 		{value: "popularity.desc", label: "Popularity Dec"},
 		{value: "release_date.asc", label: "Release Date Asc"},
@@ -27,7 +27,7 @@ export const Sort = () => {
 		<>
 			<NativeSelect
 				data={genreData}
-				onChange={(e) => {dispatch({type: "SORT", payload: e.target.value});}}
+				onChange={(e) => dispatch({type: "SORT", payload: e.target.value})}
 				placeholder="Pick one"
 			/>
 		</>

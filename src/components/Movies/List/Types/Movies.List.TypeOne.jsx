@@ -1,10 +1,12 @@
 import {IconEye, IconStar} from "@tabler/icons";
 import {Card, Center, createStyles, Group, Text} from "@mantine/core";
+import {Link} from "react-router-dom";
 
 const useStyles = createStyles((theme, _params, getRef) => {
 	const image = getRef("image");
 
 	return {
+
 		card: {
 			position: "relative",
 			height: 380,
@@ -14,6 +16,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
 			[`&:hover .${image}`]: {
 				transform: "scale(1.03)",
 			},
+
 		},
 
 		image: {
@@ -64,6 +67,9 @@ const useStyles = createStyles((theme, _params, getRef) => {
 			justifyContent: "center",
 			flexWrap: "wrap",
 		},
+		link: {
+			textDecoration: 'none'
+		}
 	};
 });
 
@@ -73,15 +79,13 @@ export const TypeOne = ({data}) => {
 	const items = data?.pages.map(({data}) =>
 		data.results.map(({id, title, poster_path, vote_average, vote_count, release_date}) => {
 			return (
+				<Link key={id} to={`movie/${id}`} className={classes.link}>
 				<Card
-					key={id}
 					p="lg"
 					m="md"
 					shadow="lg"
 					className={classes.card}
-					radius="md"
-					component="a"
-					target="_blank">
+					radius="md">
 					<div className={classes.image}
 					     style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${poster_path})`}}/>
 					<div className={classes.overlay}/>
@@ -107,6 +111,7 @@ export const TypeOne = ({data}) => {
 						</div>
 					</div>
 				</Card>
+				</Link>
 			);
 		}));
 

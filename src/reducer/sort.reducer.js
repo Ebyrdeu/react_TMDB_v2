@@ -1,12 +1,12 @@
 export const sortIntialState = {
-	moviesGenre: null,
-	moviesSort: null,
+	moviesGenre: 'none',
+	moviesSort: 'none',
 };
 
 export const sortInitializer = () => {
 	return {
-		moviesGenre: null,
-		moviesSort: null,
+		moviesGenre: 'none',
+		moviesSort: 'none',
 	};
 };
 

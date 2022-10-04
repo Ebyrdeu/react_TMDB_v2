@@ -4,7 +4,7 @@ import {NativeSelect} from "@mantine/core";
 
 export const Genre = () => {
 	const [genreData, setGenreData] = useState([
-		{value: "none", label: "None"},
+		{value: 'none', label: "None"},
 		{value: 28, label: "Action"},
 		{value: 12, label: "Adventure"},
 		{value: 16, label: "Animation"},

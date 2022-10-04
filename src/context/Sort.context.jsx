@@ -6,6 +6,7 @@ export const SortContext = createContext(undefined);
 export const SortContextProvider = ({children}) => {
 
 	const [state, dispatch] = useReducer(sortReducer, sortIntialState, sortInitializer);
+	console.log(state);
 	return <SortContext.Provider value={{...state, dispatch}} children={children}/>;
 
 };
