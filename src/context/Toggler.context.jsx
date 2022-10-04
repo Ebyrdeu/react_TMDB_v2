@@ -8,7 +8,6 @@ export const TogglerContextProvider = ({children}) => {
 
 	const [state, dispatch] = useReducer(togglerReducer, togglerIntialState, togglerInitializer)
 
-
 	return <TogglerContext.Provider value={{...state, dispatch}} children={children}/>
 
 }

@@ -12,14 +12,14 @@ const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<QueryClientProvider client={queryClient}>
+			<TogglerContextProvider>
 			<MantineContextProvider>
 				<BrowserRouter>
-					<TogglerContextProvider>
 						<App/>
-					</TogglerContextProvider>
 				</BrowserRouter>
 				<ReactQueryDevtools initialIsOpen={false} position={"bottom-right"}/>
 			</MantineContextProvider>
+			</TogglerContextProvider>
 		</QueryClientProvider>
 
 	</React.StrictMode>,
