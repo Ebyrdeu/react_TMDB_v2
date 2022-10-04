@@ -1,4 +1,5 @@
 import {Badge, Card, Container, createStyles, Group, Image, Text} from "@mantine/core";
+import {Link} from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
 	card: {
@@ -48,7 +49,9 @@ export const TypeTwo = ({data}) => {
 			return (
 				<Card key={id} m={"md"} withBorder radius="md" className={classes.card}>
 					<Card.Section>
-						<Image src={`https://image.tmdb.org/t/p/w500/${poster_path}`} height={180}/>
+						<Link to={`info/movies/${id}`}>
+							<Image src={`https://image.tmdb.org/t/p/w500/${poster_path}`} height={180}/>
+						</Link>
 					</Card.Section>
 
 					<Badge className={classes.rating} variant="gradient" gradient={{from: "yellow", to: "red"}}

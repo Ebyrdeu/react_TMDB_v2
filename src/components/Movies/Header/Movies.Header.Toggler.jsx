@@ -1,7 +1,7 @@
 import {ActionIcon, Group, Tooltip, useMantineColorScheme} from "@mantine/core";
 import {IconLayoutGrid, IconMoonStars, IconSun, IconList, IconGridDots} from "@tabler/icons";
 import {useContext} from "react";
-import {TogglerContext} from "../../context/Toggler.context.jsx";
+import {TogglerContext} from "../../../context/Toggler.context.jsx";
 
 export const Toggles = () => {
 	const {colorScheme, toggleColorScheme} = useMantineColorScheme();
