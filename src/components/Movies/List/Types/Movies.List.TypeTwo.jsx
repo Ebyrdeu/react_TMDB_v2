@@ -35,11 +35,11 @@ const useStyles = createStyles((theme) => ({
 			theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
 		}`,
 	},
-	wrapper :{
+	wrapper: {
 		display: "flex",
 		justifyContent: "center",
-		flexWrap: 'wrap'
-	}
+		flexWrap: "wrap",
+	},
 }));
 
 export const TypeTwo = ({data}) => {

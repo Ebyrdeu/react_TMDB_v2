@@ -2,12 +2,12 @@
 
 
 export const togglerIntialState = {
-	showListType: 1
+	showListType: 1,
 }
 
 export const togglerInitializer = () => {
 	return {
-		showListType: 1
+		showListType: 1,
 	}
 }
 

@@ -1,5 +1,5 @@
 import {IconEye, IconStar} from "@tabler/icons";
-import {Card, Center, Container, createStyles, Group, Text} from "@mantine/core";
+import {Card, Center, createStyles, Group, Text} from "@mantine/core";
 
 const useStyles = createStyles((theme, _params, getRef) => {
 	const image = getRef("image");
@@ -60,9 +60,9 @@ const useStyles = createStyles((theme, _params, getRef) => {
 		},
 
 		wrapper: {
-			display: 'flex',
+			display: "flex",
 			justifyContent: "center",
-			flexWrap: 'wrap'
+			flexWrap: "wrap",
 		},
 	};
 });
