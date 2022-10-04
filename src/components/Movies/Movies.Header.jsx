@@ -5,7 +5,6 @@ export const MoviesHeader = () => {
 
 	return (
 		<Container>
-
 			<Toggles/>
 		</Container>
 	);
