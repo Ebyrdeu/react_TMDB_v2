@@ -10,6 +10,8 @@ export const MoviesLists = () => {
 	const {data, isLoading, fetchNextPage} = useShowMovieList();
 	const {showListType} = useContext(TogglerContext);
 
+	if (isLoading) return;
+
 	return (
 		<div>
 			<div style={{marginBottom: 120}}>
