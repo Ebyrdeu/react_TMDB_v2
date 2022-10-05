@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
-import {useMovieStaff} from "../../hooks/useMovieStaff.js";
+import {useActorMovies} from "../../hooks/useActorMovies.js";
 import {createStyles, Tabs} from "@mantine/core";
-import {CasCrewCard} from "./SingleMovie.CastCrew";
+import {CrewCast} from "./SingleActor.CrewCast.jsx";
 
 const useStyles = createStyles(() => ({
 		castWrapper: {
@@ -13,15 +13,15 @@ const useStyles = createStyles(() => ({
 );
 
 export const Bottom = () => {
-
 	const {id} = useParams();
-	const {data, isLoading} = useMovieStaff(id);
+	const {data, isLoading} = useActorMovies(id);
 	const {classes} = useStyles(undefined, undefined);
+
 	if (isLoading) return;
 
 	// About Keys - in TMDB sometime one person could play or have different jobs so it's needed to separate them
-	const cast = data?.data.cast.map((data, i) => <CasCrewCard data={data} key={data.id + `S` + i}/>);
-	const crew = data?.data.crew.map((data, i) => <CasCrewCard data={data} key={data.id + `S` + i}/>);
+	const cast = data?.data.cast.map((data, i) => <CrewCast data={data} key={data.id + `S` + i}/>);
+	const crew = data?.data.crew.map((data, i) => <CrewCast data={data} key={data.id + `S` + i}/>);
 
 	return (
 		<div style={{margin: "0 auto", paddingTop: 100}}>
@@ -36,9 +36,7 @@ export const Bottom = () => {
 				</Tabs.Panel>
 
 				<Tabs.Panel value="crew" pt="xs">
-					<div className={classes.castWrapper}>
-						<div className={classes.castWrapper} children={crew}/>
-					</div>
+					<div className={classes.castWrapper} children={crew}/>
 				</Tabs.Panel>
 			</Tabs>
 		</div>

@@ -19,10 +19,16 @@ export const useTMDBService = () => {
 
 	const getMovieCast= (movieId) => axios.get(`movie/${movieId}/credits?api_key=${_api}`);
 
+	const getActors = (actorId) => axios.get(`person/${actorId}?api_key=${_api}`);
+
+	const getActorMovies = (actorId) => axios.get(`person/${actorId}/credits?api_key=${_api}`);
+
 	return {
 		getMovieList,
 		getSingleMovie,
-		getMovieCast
+		getMovieCast,
+		getActors,
+		getActorMovies
 	};
 
 };
