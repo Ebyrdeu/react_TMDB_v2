@@ -1,7 +1,7 @@
 import {IconEye, IconStar} from "@tabler/icons";
 import {Card, Center, createStyles, Group, Text} from "@mantine/core";
 import {Link} from "react-router-dom";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 const useStyles = createStyles((theme, _params, getRef) => {
 	const image = getRef("image");
@@ -69,30 +69,27 @@ const useStyles = createStyles((theme, _params, getRef) => {
 			flexWrap: "wrap",
 		},
 		link: {
-			textDecoration: 'none'
-		}
+			textDecoration: "none",
+		},
 	};
 });
 
 const container = {
-	hidden: { opacity: 1, scale: 0 },
+	hidden: {opacity: 1, scale: 0},
 	visible: {
 		opacity: 1,
 		scale: 1,
-		transition: {
-
-		}
-	}
+		transition: {},
+	},
 };
 
 const item = {
-	hidden: { y: 20, opacity: 0 },
+	hidden: {y: 20, opacity: 0},
 	visible: {
 		y: 0,
-		opacity: 1
-	}
+		opacity: 1,
+	},
 };
-
 
 export const TypeOne = ({data}) => {
 	const {classes, theme} = useStyles(undefined, undefined);
@@ -100,8 +97,8 @@ export const TypeOne = ({data}) => {
 	const items = data?.pages.map(({data}) =>
 		data.results.map(({id, title, poster_path, vote_average, vote_count, release_date}) => {
 			return (
-				<motion.div key={id} className="item" variants={item} >
-					<Link  to={`info/movie/${id}`} className={classes.link}>
+				<motion.div key={id} className="item" variants={item}>
+					<Link to={`info/movie/${id}`} className={classes.link}>
 						<Card
 							p="lg"
 							m="md"
@@ -139,13 +136,13 @@ export const TypeOne = ({data}) => {
 		}));
 
 	return (
-			<motion.div
-				className={`${classes.wrapper}`}
-				variants={container}
-				initial="hidden"
-				animate="visible">
-				{items}
-			</motion.div>
+		<motion.div
+			className={`${classes.wrapper}`}
+			variants={container}
+			initial="hidden"
+			animate="visible">
+			{items}
+		</motion.div>
 	);
 };
 
