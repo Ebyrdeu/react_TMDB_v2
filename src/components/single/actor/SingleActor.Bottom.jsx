@@ -1,21 +1,13 @@
 import {useParams} from "react-router-dom";
-import {useActorMovies} from "../../hooks/useActorMovies.js";
-import {createStyles, Tabs} from "@mantine/core";
+import {useActorMovies} from "../../../hooks/useActorMovies.js";
+import {Tabs} from "@mantine/core";
 import {CrewCast} from "./SingleActor.CrewCast.jsx";
-
-const useStyles = createStyles(() => ({
-		castWrapper: {
-			display: "flex",
-			flexWrap: "wrap",
-			justifyContent: "center",
-		},
-	}),
-);
+import {useActorBottomStyles} from "./styled-components/SingleActor.Bottom.Styles.js";
 
 export const Bottom = () => {
 	const {id} = useParams();
 	const {data, isLoading} = useActorMovies(id);
-	const {classes} = useStyles(undefined, undefined);
+	const {classes} = useActorBottomStyles(undefined, undefined);
 
 	if (isLoading) return;
 

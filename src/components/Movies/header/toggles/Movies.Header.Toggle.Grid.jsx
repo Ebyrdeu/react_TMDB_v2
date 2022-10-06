@@ -21,7 +21,7 @@ export const Grid = () => {
 
 					variant={showListType === 2 ? "filled" : "transparent"} children={<IconGridDots size={18}/>}/>
 			</Tooltip>
-			<Tooltip label={"Show List"}>
+			<Tooltip label={"Show list"}>
 				<ActionIcon
 					onClick={() => onListChangeHandler("SMALL_GRID")}
 					variant={showListType === 3 ? "filled" : "transparent"} children={<IconList size={18}/>}/>

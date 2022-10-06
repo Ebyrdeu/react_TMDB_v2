@@ -2,14 +2,15 @@ import {Route, Routes} from "react-router-dom";
 import {MoviesPage} from "./pages/Movies.Page";
 import {NotFoundPage} from "./pages/NotFound.Page";
 import {MoreInfoPage} from "./pages/MoreInfo.Page";
+import ErrorBoundary from "./components/other/ErrorBoundary.component";
 
 function App() {
 
 	return(
 		<Routes>
 			<Route path="/">
-				<Route index element={<MoviesPage/>}/>
-				<Route path={"info/:type/:id"} element={<MoreInfoPage/>}/>
+				<Route index element={<ErrorBoundary childElement={<MoviesPage/>}/>}/>
+				<Route path={"info/:type/:id"} element={<ErrorBoundary childElement={<MoreInfoPage/>}/>}/>
 				<Route path="*" element={<NotFoundPage/>}/>
 			</Route>
 		</Routes>

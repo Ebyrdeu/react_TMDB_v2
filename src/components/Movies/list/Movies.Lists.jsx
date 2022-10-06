@@ -1,9 +1,9 @@
 import {useShowMovieList} from "../../../hooks/useShowMovieList.js";
 import {useContext} from "react";
 import {TogglerContext} from "../../../context/Toggler.context.jsx";
-import {TypeOne} from "./Types/Movies.List.TypeOne.jsx";
-import {TypeThree} from "./Types/Movies.List.TypeThree.jsx";
-import {TypeTwo} from "./Types/Movies.List.TypeTwo.jsx";
+import {TypeOne} from "./types/Movies.List.TypeOne.jsx";
+import {TypeThree} from "./types/Movies.List.TypeThree.jsx";
+import {TypeTwo} from "./types/Movies.List.TypeTwo.jsx";
 import {LoadMore} from "./Movie.List.LoadMore";
 
 export const MoviesLists = () => {

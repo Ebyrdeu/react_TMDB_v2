@@ -13,7 +13,6 @@ const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
-
 		<TogglerContextProvider>
 			<SortContextProvider>
 				<SearchContextProvider>
@@ -28,6 +27,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 				</SearchContextProvider>
 			</SortContextProvider>
 		</TogglerContextProvider>
-
 	</React.StrictMode>,
 );

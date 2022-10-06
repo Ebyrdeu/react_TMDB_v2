@@ -1,8 +1,8 @@
 import {useNavigate, useParams} from "react-router-dom";
-import {useShowSingleMovie} from "../../hooks/useShowSingleMovie.js";
+import {useShowSingleMovie} from "../../../hooks/useShowSingleMovie.js";
 import {Button, Container, Image} from "@mantine/core";
-import {Top} from "./SingleMovie.Top";
-import {Bottom} from "./SingleMovie.Bottom";
+import {Top} from "./SingleMovie.Top.jsx";
+import {Bottom} from "./SingleMovie.Bottom.jsx";
 import {IconArrowLeft} from "@tabler/icons";
 
 export const SingleMovie = () => {

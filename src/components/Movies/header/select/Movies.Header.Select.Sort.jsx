@@ -20,7 +20,6 @@ export const Sort = () => {
 		{value: "vote_count.asc", label: "Vote Count  Asc"},
 		{value: "vote_count.desc", label: "Vote Count  Dec"},
 	]);
-
 	const {dispatch} = useContext(SortContext);
 
 	return (

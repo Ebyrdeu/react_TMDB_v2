@@ -1,40 +1,8 @@
-import {createStyles, Image, Text} from "@mantine/core";
+import {Image, Text} from "@mantine/core";
+import {useActorTopStyles} from "./styled-components/SingleActor.Top.Styles.js";
 
-const useStyles = createStyles(() => ({
-	wrapper: {
-		display: "flex",
-		alignItems: "start",
-		"@media (max-width: 800px)": {
-			flexWrap: "wrap",
-			alignItems: "center",
-			flexDirection: "column",
-		},
-	},
-
-	iconsWrapper: {
-		display: "flex",
-		justifyContent: "space-between",
-	},
-	titleWrapper: {
-		display: "flex",
-		alignItems: "center",
-		paddingTop: 20,
-	},
-
-	description: {
-		width: 800,
-		maxWidth: "100%",
-		paddingLeft: 30,
-
-	},
-	icons: {
-		display: "flex",
-		alignItems: "center",
-	},
-
-}));
 export const Top = ({data}) => {
-	const {classes} = useStyles(undefined, undefined);
+	const {classes} = useActorTopStyles(undefined, undefined);
 	const {biography, profile_path, name, birthday, gender} = data?.data;
 
 	return (

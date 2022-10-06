@@ -16,7 +16,6 @@ const useStyles = createStyles(() => ({
 
 export const LoadMore = ({next}) => {
 	const {classes} = useStyles(undefined, undefined);
-
 	// Detect Bottom of screen
 	const onFindBottom = (e) => (window.innerHeight + e.target.documentElement.scrollTop >= e.target.documentElement.scrollHeight) ? next() : null;
 

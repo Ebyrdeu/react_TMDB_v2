@@ -79,7 +79,10 @@ const container = {
 	visible: {
 		opacity: 1,
 		scale: 1,
-		transition: {},
+		transition: {
+			delayChildren: 0.1,
+			staggerChildren: 0.01,
+		},
 	},
 };
 

@@ -1,21 +1,17 @@
 import {useNavigate, useParams} from "react-router-dom";
-
-import {Button, Container, createStyles} from "@mantine/core";
+import {Button, Container} from "@mantine/core";
 import {Top} from "./SingleActor.Top.jsx";
 import {Bottom} from "./SingleActor.Bottom.jsx";
 import {IconArrowLeft} from "@tabler/icons";
-import {useShowSingleActor} from "../../hooks/useShowSingleActor.js";
-
-const useStyles = createStyles((theme) => ({
-	bg: {height: 100, background: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0]},
-
-}));
+import {useShowSingleActor} from "../../../hooks/useShowSingleActor.js";
+import {useComponentStyles} from "./styled-components/SingleActor.component.Styles.js";
 
 export const SingleActor = () => {
 	const {id} = useParams();
 	const {data, isLoading} = useShowSingleActor(id);
 	const navigate = useNavigate();
-	const {classes} = useStyles(undefined, undefined);
+	const {classes} = useComponentStyles(undefined, undefined);
+
 	if (isLoading) return;
 
 	return (

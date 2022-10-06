@@ -1,31 +1,23 @@
 import {useParams} from "react-router-dom";
-import {useMovieStaff} from "../../hooks/useMovieStaff.js";
-import {createStyles, Tabs} from "@mantine/core";
-import {CasCrewCard} from "./SingleMovie.CastCrew";
-import {useSimilarMovie} from "../../hooks/useSimilarMovie.js";
-
-const useStyles = createStyles(() => ({
-		castWrapper: {
-			display: "flex",
-			flexWrap: "wrap",
-			justifyContent: "center",
-		},
-	}),
-);
+import {useMovieStaff} from "../../../hooks/useMovieStaff.js";
+import {Tabs} from "@mantine/core";
+import {CrewCastCard} from "./SingleMovie.CrewCast.jsx";
+import {useSimilarMovie} from "../../../hooks/useSimilarMovie.js";
+import {useMovieBottomStyles} from "./styled-components/SingleMovie.Bottom.Styles.js";
 
 export const Bottom = () => {
 
 	const {id} = useParams();
 	const {data, isLoading} = useMovieStaff(id);
-	const {data: similarMovie, N} = useSimilarMovie(id);
-	const {classes} = useStyles(undefined, undefined);
+	const {data: similarMovie} = useSimilarMovie(id);
+	const {classes} = useMovieBottomStyles(undefined, undefined);
 
 	if (isLoading) return;
 
-	// About Keys - in TMDB sometime one person could play or have different jobs so it's needed to separate them
-	const cast = data?.data.cast.map((data, i) => <CasCrewCard data={data} key={data.id + `S` + i}/>);
-	const crew = data?.data.crew.map((data, i) => <CasCrewCard data={data} key={data.id + `S` + i}/>);
-	const movie = similarMovie?.data.results.map((data, i) => <CasCrewCard data={data} key={data.id + `S` + i}/>);
+	// About Keys - in TMDB sometime one person could play or have different jobs, so it's needed to separate them
+	const cast = data?.data.cast.map((data, i) => <CrewCastCard data={data} key={data.id + `S` + i}/>);
+	const crew = data?.data.crew.map((data, i) => <CrewCastCard data={data} key={data.id + `S` + i}/>);
+	const movie = similarMovie?.data.results.map((data, i) => <CrewCastCard data={data} key={data.id + `S` + i}/>);
 
 	return (
 		<div style={{margin: "0 auto", paddingTop: 100}}>
