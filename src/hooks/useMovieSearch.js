@@ -1,8 +1,9 @@
 import {useTMDBService} from "../service/useTMDBService.js";
 
-import {useInfiniteQuery, useQuery} from "react-query";
+
 import {useContext} from "react";
 import {SearchContext} from "../context/Search.Context.jsx";
+import {useInfiniteQuery} from "@tanstack/react-query";
 
 export const useMovieSearch = () => {
 	const {getMovieSearch} = useTMDBService();

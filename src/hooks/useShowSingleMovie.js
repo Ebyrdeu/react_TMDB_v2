@@ -1,5 +1,5 @@
-import {useQuery} from "react-query";
 import {useTMDBService} from "../service/useTMDBService.js";
+import {useQuery} from "@tanstack/react-query";
 
 export const useShowSingleMovie = (movieId) => {
 	const {getSingleMovie} = useTMDBService();

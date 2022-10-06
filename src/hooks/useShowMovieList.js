@@ -1,9 +1,9 @@
 import {useTMDBService} from "../service/useTMDBService.js";
-import {useInfiniteQuery} from "react-query";
 import {useContext} from "react";
 import {SortContext} from "../context/Sort.context.jsx";
+import {useInfiniteQuery} from "@tanstack/react-query";
 
-export const useShowMovieList = (onSuccess, onError) => {
+export const useShowMovieList = () => {
 	const {getMovieList} = useTMDBService();
 	const {moviesGenre, moviesSort} = useContext(SortContext);
 

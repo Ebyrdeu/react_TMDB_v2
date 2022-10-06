@@ -1,5 +1,5 @@
-import {useInfiniteQuery, useQuery} from "react-query";
 import {useTMDBService} from "../service/useTMDBService.js";
+import {useQuery} from "@tanstack/react-query";
 
 export const useSimilarMovie = (movieId) => {
 	const {getSimilarMovie} = useTMDBService();

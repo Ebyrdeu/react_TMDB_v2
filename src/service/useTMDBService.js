@@ -11,11 +11,11 @@ export const useTMDBService = () => {
 	const {searchQuery} = useContext(SearchContext);
 	const checkOnExistGenre = moviesGenre !== "none" ? `&with_genres=${moviesGenre}` : "";
 	const checkOnExistSort = moviesSort !== "none" ? `&sort_by=${moviesSort}` : "";
-	const checkOnSearch = searchQuery !== null ? `&query=${searchQuery}` : "&query=Shrek";
+	const checkOnSearch = searchQuery !== null ? `query=${searchQuery}` : "query=Shrek";
 	// Functions
 	const getMovieList = ({pageParam = 1}) => axios.get(`discover/movie?api_key=${_api}&page=${pageParam}${checkOnExistGenre}${checkOnExistSort}`);
 
-	const getMovieSearch = ({pageParam = 1}) => axios.get(`search/movie?api_key=${_api}&page=${pageParam}${checkOnSearch}`);
+	const getMovieSearch = ({pageParam = 1}) => axios.get(`search/movie?api_key=${_api}&page=${pageParam}&${checkOnSearch}`);
 
 	const getSingleMovie = (movieId) => axios.get(`movie/${movieId}?api_key=${_api}`);
 
