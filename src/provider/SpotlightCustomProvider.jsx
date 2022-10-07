@@ -1,19 +1,16 @@
-import {IconSearch} from "@tabler/icons";
-import {SpotlightProvider} from "@mantine/spotlight";
-import {useMovieSearch} from "../../../../hooks/useMovieSearch.js";
-import {useContext} from "react";
-import {SearchContext} from "../../../../context/Search.Context.jsx";
 import {useNavigate} from "react-router-dom";
-import {ControlButton} from "./Movies.Header.ControlButton.jsx";
-import {MovieInfo} from "./Movies.Header.MovieInfo.jsx";
+import {useMovieSearch} from "../hooks/useMovieSearch.js";
+import {useContext} from "react";
+import {SearchContext} from "../context/Search.context.jsx";
+import {MovieInfo} from "../components/Movies/header/search/Movies.Header.MovieInfo.jsx";
+import {SpotlightProvider} from "@mantine/spotlight";
+import {IconSearch} from "@tabler/icons";
 
-export const Search = () => {
-
+export const SpotlightCustomProvider = ({children}) => {
 	// Hooks
 	const navigate = useNavigate();
 	const {data, isLoading} = useMovieSearch();
 	const {dispatch} = useContext(SearchContext);
-
 	// Render Card info
 	const item = data?.pages.map(data => {
 		return data?.data.results.map((movieInfoData) => ({
@@ -36,14 +33,15 @@ export const Search = () => {
 			onQueryChange={(search) => {
 				// probably it has better solution but, if it works, it works
 				if (search === "") return dispatch({type: "SEARCH", payload: null});
-				dispatch({type: "SEARCH", payload: search});
+				return dispatch({type: "SEARCH", payload: search});
 			}}
+			centered
+			overlayBlur={10}
 			highlightQuery
 			searchPlaceholder="Search..."
 			shortcut="mod + k"
 			nothingFoundMessage="Nothing found...">
-
-			<ControlButton/>
+			{children}
 		</SpotlightProvider>
 	);
 };

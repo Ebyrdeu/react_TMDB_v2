@@ -2,7 +2,7 @@ import {ActionIcon, Group, Tooltip} from "@mantine/core";
 import {openSpotlight} from "@mantine/spotlight";
 import {IconSearch} from "@tabler/icons";
 
-export const ControlButton = () => {
+export const SearchButton = () => {
 	return (
 		<Group position="center">
 			<Tooltip label={"mod + k"}>

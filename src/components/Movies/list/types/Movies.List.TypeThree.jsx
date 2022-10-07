@@ -1,30 +1,18 @@
-import {Container, createStyles, Group, Progress, ScrollArea, Table, Text} from "@mantine/core";
+import {Container, Group, Progress, ScrollArea, Table, Text} from "@mantine/core";
 import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
-
-const useStyles = createStyles((theme) => ({
-	progressBar: {
-		"&:not(:first-of-type)": {
-			borderLeft: `3px solid ${theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white}`,
-		},
-	}, posterImage: {
-		width: 50,
-	},
-	link: {
-		textDecoration: "none",
-		color: `${theme.colorScheme !== "dark" ? theme.colors.dark[6] : theme.white}`
-	},
-}));
+import {useTypeThreeStyles} from "./styled-components/Movie.List.TypeThree.styles.js";
 
 export const TypeThree = ({data}) => {
-	const {classes, theme} = useStyles(undefined, undefined);
+	const {classes, theme} = useTypeThreeStyles(undefined, undefined);
 
 	const rows = data?.pages.map(({data}) => {
 
-		return data.results.map(({id, title, poster_path, vote_average, vote_count, release_date}) => {
+		return data.results.map(({id, title, poster_path, vote_average, vote_count}) => {
 			const totalReviews = vote_average + (10 - vote_average);
 			const positiveReviews = (vote_average / totalReviews) * 100;
 			const negativeReviews = ((10 - vote_average) / totalReviews) * 100;
+
 			return (
 				<motion.tr className="container"
 				           whileHover={{scale: 1.01, zIndex: 999}}
@@ -32,13 +20,13 @@ export const TypeThree = ({data}) => {
 				           key={id}
 				           sx={{display: "flex", alignItems: "center", flexDirection: "column"}}>
 					<td>
-						<Link  to={`info/movie/${id}`} className={classes.link}>
+						<Link to={`info/movie/${id}`} className={classes.link}>
 							<img className={classes.posterImage} src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
 							     alt={title}/>
 						</Link>
 					</td>
 					<td>
-						<Link  to={`info/movie/${id}`} className={classes.link}>
+						<Link to={`info/movie/${id}`} className={classes.link}>
 							<Text size="md" className={classes.title} weight={500}>{title}</Text>
 						</Link>
 					</td>

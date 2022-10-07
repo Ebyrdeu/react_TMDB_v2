@@ -11,8 +11,11 @@ export const Top = ({data}) => {
 	return (
 		<div className={classes.wrapper}>
 			<div>
-				<Image src={`https://image.tmdb.org/t/p/w500/${poster_path}`} height={320} width={215} radius="md"
-				       mt="-140px"/>
+				{!poster_path
+					? <div className={classes.bg}/>
+					: <Image src={`https://image.tmdb.org/t/p/w500/${poster_path}`} height={320} width={215} radius="md"
+					         mt="-140px"/>
+				}
 
 				<div className={classes.iconsWrapper}>
 

@@ -11,7 +11,6 @@ const useStyles = createStyles(() => ({
 		alignItems: "center",
 		marginBottom: 20,
 	},
-
 }));
 
 export const LoadMore = ({next}) => {

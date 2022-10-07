@@ -1,10 +1,10 @@
 import {ActionIcon, Tooltip} from "@mantine/core";
 import {IconGridDots, IconLayoutGrid, IconList} from "@tabler/icons";
 import {useContext} from "react";
-import {TogglerContext} from "../../../../context/Toggler.context.jsx";
+import {TogglesContext} from "../../../../context/Toggles.context.jsx";
 
 export const Grid = () => {
-	const {showListType, dispatch} = useContext(TogglerContext);
+	const {showListType, dispatch} = useContext(TogglesContext);
 
 	const onListChangeHandler = (listType) => dispatch({type: listType});
 

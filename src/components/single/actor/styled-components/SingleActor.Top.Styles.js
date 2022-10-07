@@ -1,6 +1,6 @@
 import {createStyles} from "@mantine/core";
 
-export const useActorTopStyles = createStyles(() => ({
+export const useActorTopStyles = createStyles((theme) => ({
 	wrapper: {
 		display: "flex",
 		alignItems: "start",
@@ -32,4 +32,11 @@ export const useActorTopStyles = createStyles(() => ({
 		alignItems: "center",
 	},
 
+	bg : {
+		background: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[0],
+		height: 320, width: 215,
+		marginTop: -40,
+		borderRadius: 8,
+		position: 'relative',
+	}
 }));

@@ -4,19 +4,20 @@ import {Button, Container, Image} from "@mantine/core";
 import {Top} from "./SingleMovie.Top.jsx";
 import {Bottom} from "./SingleMovie.Bottom.jsx";
 import {IconArrowLeft} from "@tabler/icons";
+import {useMovieComponentStyles} from "./styled-components/SingleMovie.Component.Styles.js";
 
 export const SingleMovie = () => {
 
 	const {id} = useParams();
 	const {data, isLoading} = useShowSingleMovie(id);
-
+	const {classes} = useMovieComponentStyles(undefined, undefined)
 	const navigate = useNavigate();
 
 	if (isLoading) return;
 
 	return (
 		<>
-			<Image src={`https://image.tmdb.org/t/p/w500/${data?.data.backdrop_path}`} height={400}/>
+			{!data?.data.backdrop_path  ? <div className={classes.bg}/> : <Image src={`https://image.tmdb.org/t/p/w500/${data?.data.backdrop_path}`} height={400}/>}
 			<Button
 				onClick={() => navigate(-1)}
 				variant="filled"

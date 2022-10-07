@@ -1,6 +1,6 @@
 import {useShowMovieList} from "../../../hooks/useShowMovieList.js";
 import {useContext} from "react";
-import {TogglerContext} from "../../../context/Toggler.context.jsx";
+import {TogglesContext} from "../../../context/Toggles.context.jsx";
 import {TypeOne} from "./types/Movies.List.TypeOne.jsx";
 import {TypeThree} from "./types/Movies.List.TypeThree.jsx";
 import {TypeTwo} from "./types/Movies.List.TypeTwo.jsx";
@@ -8,7 +8,7 @@ import {LoadMore} from "./Movie.List.LoadMore";
 
 export const MoviesLists = () => {
 	const {data, isLoading, fetchNextPage} = useShowMovieList();
-	const {showListType} = useContext(TogglerContext);
+	const {showListType} = useContext(TogglesContext);
 
 	if (isLoading) return;
 

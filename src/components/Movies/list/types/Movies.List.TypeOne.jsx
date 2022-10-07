@@ -1,106 +1,16 @@
 import {IconEye, IconStar} from "@tabler/icons";
-import {Card, Center, createStyles, Group, Text} from "@mantine/core";
+import {Card, Center, Group, Text} from "@mantine/core";
 import {Link} from "react-router-dom";
 import {motion} from "framer-motion";
-
-const useStyles = createStyles((theme, _params, getRef) => {
-	const image = getRef("image");
-
-	return {
-
-		card: {
-			position: "relative",
-			height: 380,
-			width: 420,
-			backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
-
-			[`&:hover .${image}`]: {
-				transform: "scale(1.03)",
-			},
-
-		},
-
-		image: {
-			ref: image,
-			position: "absolute",
-			top: 0,
-			left: 0,
-			right: 0,
-			bottom: 0,
-			backgroundSize: "cover",
-			transition: "transform 500ms ease",
-		},
-
-		overlay: {
-			position: "absolute",
-			top: "20%",
-			left: 0,
-			right: 0,
-			bottom: 0,
-			backgroundImage: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .85) 90%)",
-		},
-
-		content: {
-			height: "100%",
-			position: "relative",
-			display: "flex",
-			flexDirection: "column",
-			justifyContent: "flex-end",
-			zIndex: 1,
-		},
-
-		title: {
-			color: theme.white,
-			marginBottom: 5,
-		},
-
-		bodyText: {
-			color: theme.colors.dark[2],
-			marginLeft: 7,
-		},
-
-		date: {
-			color: theme.colors.dark[2],
-		},
-
-		wrapper: {
-			display: "flex",
-			justifyContent: "center",
-			flexWrap: "wrap",
-		},
-		link: {
-			textDecoration: "none",
-		},
-	};
-});
-
-const container = {
-	hidden: {opacity: 1, scale: 0},
-	visible: {
-		opacity: 1,
-		scale: 1,
-		transition: {
-			delayChildren: 0.1,
-			staggerChildren: 0.01,
-		},
-	},
-};
-
-const item = {
-	hidden: {y: 20, opacity: 0},
-	visible: {
-		y: 0,
-		opacity: 1,
-	},
-};
+import {typeOneContainer, typeOneItem, useTypeOneStyles} from "./styled-components/Movie.List.TypeOne.styles.js";
 
 export const TypeOne = ({data}) => {
-	const {classes, theme} = useStyles(undefined, undefined);
+	const {classes, theme} = useTypeOneStyles(undefined, undefined);
 
 	const items = data?.pages.map(({data}) =>
-		data.results.map(({id, title, poster_path, vote_average, vote_count, release_date}) => {
-			return (
-				<motion.div key={id} className="item" variants={item}>
+		data.results.map(({id, title, poster_path, vote_average, vote_count, release_date}) =>
+			(
+				<motion.div key={id} className="item" variants={typeOneItem}>
 					<Link to={`info/movie/${id}`} className={classes.link}>
 						<Card
 							p="lg"
@@ -135,17 +45,14 @@ export const TypeOne = ({data}) => {
 						</Card>
 					</Link>
 				</motion.div>
-			);
-		}));
+			),
+		));
 
-	return (
-		<motion.div
-			className={`${classes.wrapper}`}
-			variants={container}
-			initial="hidden"
-			animate="visible">
-			{items}
-		</motion.div>
-	);
+	return <motion.div
+		className={`${classes.wrapper}`}
+		variants={typeOneContainer}
+		initial="hidden"
+		animate="visible"
+		children={items}/>;
 };
 

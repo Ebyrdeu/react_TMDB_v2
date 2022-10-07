@@ -4,13 +4,13 @@ import {Top} from "./SingleActor.Top.jsx";
 import {Bottom} from "./SingleActor.Bottom.jsx";
 import {IconArrowLeft} from "@tabler/icons";
 import {useShowSingleActor} from "../../../hooks/useShowSingleActor.js";
-import {useComponentStyles} from "./styled-components/SingleActor.component.Styles.js";
+import {useActorComponentStyles} from "./styled-components/SingleActor.Component.Styles.js";
 
 export const SingleActor = () => {
 	const {id} = useParams();
 	const {data, isLoading} = useShowSingleActor(id);
 	const navigate = useNavigate();
-	const {classes} = useComponentStyles(undefined, undefined);
+	const {classes} = useActorComponentStyles(undefined, undefined);
 
 	if (isLoading) return;
 
