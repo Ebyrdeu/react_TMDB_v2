@@ -3,15 +3,19 @@ import {IconChevronUp} from "@tabler/icons";
 import {Outlet} from "react-router-dom";
 import {useWindowScroll} from "@mantine/hooks";
 import {motion} from "framer-motion";
+import {SpotlightCustomProvider} from "../../provider/SpotlightCustomProvider.jsx";
+import React from "react";
 
 export const BackToTop = () => {
 	const [scroll, scrollTo] = useWindowScroll();
 
 	return (
-		<>
+
+			<SpotlightCustomProvider>
 			{scroll.y <= 800 ? null : <TopButton scrollTo={scrollTo}/>}
 			<Outlet/>
-		</>
+			</SpotlightCustomProvider>
+
 	);
 };
 
