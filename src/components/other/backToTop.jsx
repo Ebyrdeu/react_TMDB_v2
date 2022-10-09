@@ -5,17 +5,16 @@ import {useWindowScroll} from "@mantine/hooks";
 import {motion} from "framer-motion";
 import {SpotlightCustomProvider} from "../../provider/SpotlightCustomProvider.jsx";
 import React from "react";
+import "./main.css";
 
 export const BackToTop = () => {
 	const [scroll, scrollTo] = useWindowScroll();
 
 	return (
-
-			<SpotlightCustomProvider>
+		<SpotlightCustomProvider>
 			{scroll.y <= 800 ? null : <TopButton scrollTo={scrollTo}/>}
 			<Outlet/>
-			</SpotlightCustomProvider>
-
+		</SpotlightCustomProvider>
 	);
 };
 

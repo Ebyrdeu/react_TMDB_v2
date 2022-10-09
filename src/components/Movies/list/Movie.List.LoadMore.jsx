@@ -1,6 +1,7 @@
 import {IconChevronsDown} from "@tabler/icons";
 import {createStyles, Text} from "@mantine/core";
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
+import {useIntersection} from "@mantine/hooks";
 
 const useStyles = createStyles(() => ({
 	wrapper: {
@@ -15,17 +16,18 @@ const useStyles = createStyles(() => ({
 
 export const LoadMore = ({next}) => {
 	const {classes} = useStyles(undefined, undefined);
-	// Detect Bottom of screen
-	const onFindBottom = (e) => (window.innerHeight + e.target.documentElement.scrollTop >= e.target.documentElement.scrollHeight) ? next() : null;
-
+	const containerRef = useRef();
+	const {ref, entry} = useIntersection({
+		root: containerRef.current,
+		threshold: 1,
+	});
 	// Effects
 	useEffect(() => {
-		window.addEventListener("scroll", onFindBottom);
-		return () => window.removeEventListener("scroll", onFindBottom);
-	});
+		entry?.isIntersecting ? next() : null;
+	}, [entry]);
 
 	return (
-		<div className={classes.wrapper}>
+		<div className={classes.wrapper} ref={ref}>
 			<Text color={"dimmed"} children={"Scroll down to load more movies"}/>
 			<IconChevronsDown/>
 		</div>
