@@ -12,20 +12,20 @@ import {router} from "./routes/routes.jsx";
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<React.StrictMode>
-		<MantineCustomProvider>
-			<TogglesContextProvider>
-				<SortContextProvider>
-					<SearchContextProvider>
-						<QueryClientProvider client={queryClient}>
-							<RouterProvider router={router}>
-								<ReactQueryDevtools initialIsOpen={false} position={"bottom-right"}/>
-								<ScrollRestoration/>
-							</RouterProvider>
-						</QueryClientProvider>
-					</SearchContextProvider>
-				</SortContextProvider>
-			</TogglesContextProvider>
-		</MantineCustomProvider>
-	</React.StrictMode>
+    <React.StrictMode>
+        <MantineCustomProvider>
+            <TogglesContextProvider>
+                <SortContextProvider>
+                    <SearchContextProvider>
+                        <QueryClientProvider client={queryClient}>
+                            <RouterProvider router={router}>
+                                <ScrollRestoration/>
+                            </RouterProvider>
+                            <ReactQueryDevtools initialIsOpen={false} position={"bottom-right"}/>
+                        </QueryClientProvider>
+                    </SearchContextProvider>
+                </SortContextProvider>
+            </TogglesContextProvider>
+        </MantineCustomProvider>
+    </React.StrictMode>
 );
