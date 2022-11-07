@@ -10,7 +10,7 @@ export const searchInitializer = () => {
 
 export const searchReducer = (state, action) => {
 	switch (action.type) {
-		case "SEARCH":
+		case 'SEARCH':
 			return {
 				searchQuery: action.payload,
 			};
