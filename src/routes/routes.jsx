@@ -7,12 +7,12 @@ import {NotFoundPage} from '../pages/NotFound.Page.jsx';
 import {JustToPassAssigment} from '../justToPassAssigment/justToPassAssigment';
 
 export const router = createBrowserRouter(
-		createRoutesFromElements(
-				<Route path="/" element={<BackToTop/>}>
-					<Route index element={<ErrorBoundary childElement={<MoviesPage/>}/>}/>
-					<Route path={'info/:type/:id'} element={<ErrorBoundary childElement={<MoreInfoPage/>}/>}/>
-					<Route path="*" element={<NotFoundPage/>}/>
-					<Route path={'test'} element={<JustToPassAssigment/>}/>
-				</Route>,
-		),
+    createRoutesFromElements(
+        <Route path="/" element={<BackToTop/>}>
+          <Route index element={<ErrorBoundary childElement={<MoviesPage/>}/>}/>
+          <Route path={'info/:type/:id'} element={<ErrorBoundary childElement={<MoreInfoPage/>}/>}/>
+          <Route path="*" element={<NotFoundPage/>}/>
+          <Route path={':id'} element={<JustToPassAssigment/>}/>
+        </Route>,
+    ),
 );
